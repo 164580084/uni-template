@@ -1,4 +1,4 @@
-# Live
+# uni-app 项目初始化
 
 ### Project setup
 ```
