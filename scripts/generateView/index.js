@@ -15,10 +15,10 @@ const {
 	viewRouterTemplate
 } = require('./template')
 
-log('请输入要生成的页面名称、生成在pages/目录下, home/index则会生成home文件夹再生成index.vue(以此类推), home会生成同名文件夹+文件, 默认pages/index为主包, 对应生成路由至相关文件')
+log('请输入要生成的页面名称、列如分包:  subpackage/index/index 则会生成index文件夹再生成index.vue(以此类推),subpackage则是分包主文件夹')
 
-let componentName = ''	// 组件名
-let dirName = ''	// 目录名
+let componentName = '' // 组件名
+let dirName = '' // 目录名
 process.stdin.on('data', async chunk => {
 	// 组件名称
 	let dir = ''
@@ -43,7 +43,8 @@ process.stdin.on('data', async chunk => {
 		errorLog('生成路径错误，文件名不能为空！')
 		return
 	}
-	const componentPath = resolvePath(`../src/pages/${dir}`)
+	// const componentPath = resolvePath(`../src/pages/${dir}`)
+	const componentPath = resolvePath(`../src/${dir}`)
 	// vue文件
 	const vueFile = resolvePath(componentPath, `${componentName}.vue`)
 	// 判断组件文件夹是否存在
@@ -54,7 +55,7 @@ process.stdin.on('data', async chunk => {
 	}
 	try {
 		if (!fs.existsSync(resolvePath(componentPath))) {
-			log(`正在生成 pages 目录 ${componentPath}`)
+			log(`正在生成 目录 ${componentPath}`)
 			await dotExistDirectoryCreate(componentPath)
 		}
 	} catch (e) {
@@ -84,7 +85,7 @@ async function addRouter(fileName) {
 	let routerListItem
 	dirName = dirName.split('/')
 	// 生成主包路由
-	if (dirName[0] == 'index') {
+	if (dirName[0] == 'pages') {
 		reg = /(module.exports\s*=\s*\[)((.|\s)*?)\]/
 		file = resolvePath('../src/page_modules', 'home.js')
 	} else {
@@ -108,8 +109,8 @@ async function addRouter(fileName) {
 						if (routerList && routerList.input) {
 							let dir = [...dirName]
 							// 生成主包路由
-							if (dirName[0] == 'index') {
-								dir = `pages/${dir.join('/')}`
+							if (dirName[0] == 'pages') {
+								dir = `${dir.join('/')}`
 							} else {
 								if (dir.length > 1) {
 									dir.splice(0, 1)
@@ -137,6 +138,12 @@ async function addRouter(fileName) {
 			})
 		}
 	})
+	// path: '${dir.join('/')}',
+	// requiresAuth: true,
+	// name: '${fileName}',
+	// meta: {
+	//     title: '${fileName}'
+	// }
 
 	function emptyIndexAdd(file, fileName) {
 		let dir = [...dirName]
@@ -144,13 +151,11 @@ async function addRouter(fileName) {
 			dir.splice(0, 1)
 		}
 		let importStr = `module.exports = [{
-	root: 'pages/${dirName[0]}',
+	root: '${dirName[0]}',
 	pages: [{
 		path: '${dir.join('/')}',
-		requiresAuth: true,
-		name: '${fileName}',
-		meta: {
-			title: '${fileName}'
+		style: {
+			navigationStyle: 'custom',
 		}
 	}]
 }]

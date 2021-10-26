@@ -18,18 +18,24 @@ export default {
 }
 </script>
 
+
 <style lang="scss" scoped>
 
 </style>
 `
 	},
 	viewRouterTemplate: (compoenntName, dirName) => `{
-		requiresAuth: true,
-		path: '${dirName}',
-		name: '${compoenntName}',
-		meta: {
-			title: '${compoenntName}'
+		path:  '${dirName}',
+		style: {
+			navigationStyle: 'custom',
 		}
 	}
 `
 }
+
+// requiresAuth: true,
+// 		path: '${dirName}',
+// 		name: '${compoenntName}',
+// 		meta: {
+// 			title: '${compoenntName}'
+// 		}

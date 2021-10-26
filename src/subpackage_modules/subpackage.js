@@ -1,12 +1,10 @@
 module.exports = [{
-	root: 'pages/subpackage',
+	root: 'subpackage',
 	pages: [{
-		path: 'index/index',
-		requiresAuth: true,
-		name: 'home',
-		meta: {
-			title: 'home'
+		path:  'index/index',
+		style: {
+			navigationStyle: 'custom',
 		}
 	}
-	]
+]
 }]
