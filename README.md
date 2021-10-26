@@ -2,7 +2,7 @@
 
 ### Project setup
 ```
-npm install
+yarn install || npm install
 
 ```
 
