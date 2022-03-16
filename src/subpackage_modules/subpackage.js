@@ -5,6 +5,5 @@ module.exports = [{
 		style: {
 			navigationStyle: 'custom',
 		}
-	}
-]
+	}]
 }]
