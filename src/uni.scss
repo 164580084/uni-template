@@ -4,7 +4,8 @@
  */
 
 //主色调，红色：#FF0036，绿色 #4CAF50，蓝色：#03A9F4，黄色：#FF9800，粉色：#FF547B，棕色：#C3A769，浅绿色：#65C4AA，黑色：#333333，紫色：#B323B4，淡粉色：#FF8B8B
-
+ /* uni.scss */
+ @import 'uview-ui/theme.scss';
 // 颜色
 $color-title: #303133; // 主标题
 $color-sub: #606266; // 副标题

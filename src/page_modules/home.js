@@ -5,8 +5,20 @@ module.exports = [
 		aliasPath: '/',
 		style: {
 			navigationStyle: 'custom',
-			enablePullDownRefresh: true
+			enablePullDownRefresh: false
 		}
 	}
 	//* *****************登录模块（3）******************
+,{
+		path:  'pages/list/list',
+		style: {
+			navigationStyle: 'custom',
+		}
+	}
+,{
+		path:  'pages/detail/detail',
+		style: {
+			navigationStyle: 'custom',
+		}
+	}
 ]

@@ -11095,6 +11095,11 @@ uuid@^3.3.2, uuid@^3.4.0:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
 
+uview-ui@^2.0.29:
+  version "2.0.29"
+  resolved "https://registry.yarnpkg.com/uview-ui/-/uview-ui-2.0.29.tgz#467b37c946183ea86bb35526ecffac8bbf79a7b9"
+  integrity sha512-d5SttbPcowomrgpL7A1LMKRbemXtyyzpPCy98/+VQR3jfSyyHC9tfj/ZeAOKpqTn1rf9gOj2wc5tda/kVmYX2Q==
+
 v8-compile-cache@^2.0.3:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/v8-compile-cache/-/v8-compile-cache-2.3.0.tgz#2de19618c66dc247dcfb6f99338035d8245a2cee"

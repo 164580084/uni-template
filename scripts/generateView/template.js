@@ -3,10 +3,15 @@ module.exports = {
 	viewTemplate: compoenntName => {
 		return `<template>
 	<page-container>
-		<cu-custom bgColor="bg-white" :isBack="true">
-			<block slot="backText"></block>
-			<block slot="content">${compoenntName}</block>
-		</cu-custom>
+		<view slot="header">
+			<cu-custom bgColor="bg-white" :isBack="true">
+				<block slot="backText"></block>
+				<block slot="content">${compoenntName}</block>
+			</cu-custom>
+		</view>
+		<view slot="center">
+			${compoenntName}
+		</view>
 	</page-container>
 </template>
 
